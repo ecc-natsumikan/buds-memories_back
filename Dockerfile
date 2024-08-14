@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # バックエンドアプリケーションを起動
-CMD ["python", "app/main.py"]
+CMD ["python", "main.py"]
