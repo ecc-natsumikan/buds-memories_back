@@ -19,6 +19,11 @@ def create_app():
     app.register_blueprint(user_update, url_prefix="/api/user/update")
     app.register_blueprint(user_delete, url_prefix="/api/user/delete")
 
+    # タグ情報に関するAPI
+    from .view.tag_view.tag_select import tag_select
+
+    app.register_blueprint(tag_select, url_prefix="/api/tag/select")
+
     return app
 
 # app = create_app()
