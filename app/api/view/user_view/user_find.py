@@ -2,10 +2,10 @@ from flask import Blueprint, request, jsonify, abort
 from api.models import UserModel
 
 # ルーティング設定
-user_select = Blueprint("user_select", __name__)
+user_find = Blueprint("user_find", __name__)
 
-@user_select.route("", methods=["POST"])
-def select_user():
+@user_find.route("", methods=["POST"])
+def find_user():
     # リクエストからJSONデータを取得
     requested_data = request.get_json()
     print(requested_data)
