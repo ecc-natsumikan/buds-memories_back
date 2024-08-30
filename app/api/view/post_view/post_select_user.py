@@ -29,7 +29,7 @@ def select_user_post():
 
         return jsonify({
             "code": 200,
-            "posts": user_post_list
+            "user_post": user_post_list
         })
     except Exception as e:
         abort(500, f"Error occurred while selecting post: {e}")
