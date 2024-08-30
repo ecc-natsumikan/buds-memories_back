@@ -14,9 +14,9 @@ class SystemConfig:
     MONGO_URI = f"mongodb://{MONGO_USER}:{MONGO_PASSWORD}@{MONGO_HOST}/{MONGO_DATABASE}"
 
     # Flaskアプリケーションの設定
-    HOST = os.getenv("HOST")  # ホスト名
-    PORT = os.getenv("PORT")  # ポート番号
-    DEBUG = os.getenv("DEBUG")  # デバッグモードの有効化
+    FLASK_HOST = os.getenv("FLASK_HOST")  # ホスト名
+    FLASK_PORT = os.getenv("FLASK_PORT")  # ポート番号
+    FLASK_DEBUG = os.getenv("FLASK_DEBUG")  # デバッグモードの有効化
 
 
 Config = SystemConfig

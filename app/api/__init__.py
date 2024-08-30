@@ -19,6 +19,36 @@ def create_app():
     app.register_blueprint(user_update, url_prefix="/api/user/update")
     app.register_blueprint(user_delete, url_prefix="/api/user/delete")
 
-    return app
+    # タグ情報に関するAPI
+    from .view.tag_view.tags_find import tags_find
 
-# app = create_app()
+    app.register_blueprint(tags_find, url_prefix="/api/tags/find")
+
+    # 投稿情報に関するAPI
+    from .view.post_view.posts_insert import posts_insert
+    from .view.post_view.posts_delete import posts_delete
+    from .view.post_view.find.user_posts import user_posts_find
+    from .view.post_view.find.user_tag_posts import user_tag_posts_find
+    from .view.post_view.find.user_tag_posts_growth_period import user_tag_posts_growth_period_find
+    from .view.post_view.find.tag_posts import tag_posts_find
+    from .view.post_view.find.tag_posts_growth_period import tag_posts_growth_period_find
+    from .view.post_view.find.tag_posts_growth_period_count import tag_posts_growth_period_count_find
+    from .view.post_view.like_posts_update import like_post_update
+    from .view.post_view.like_posts_find import like_posts_find
+    from .view.post_view.posts_like_delete import posts_like_delete
+
+    
+
+    app.register_blueprint(posts_insert, url_prefix="/api/posts/insert")
+    app.register_blueprint(posts_delete, url_prefix="/api/posts/delete")
+    app.register_blueprint(user_posts_find, url_prefix="/api/posts/find/user")
+    app.register_blueprint(user_tag_posts_find, url_prefix="/api/posts/find/user/tag")
+    app.register_blueprint(user_tag_posts_growth_period_find, url_prefix="/api/posts/find/user/tag/growth-period")
+    app.register_blueprint(tag_posts_find, url_prefix="/api/posts/find/tag")
+    app.register_blueprint(tag_posts_growth_period_find, url_prefix="/api/posts/find/tag/growth-period")
+    app.register_blueprint(tag_posts_growth_period_count_find, url_prefix="/api/posts/find/tag/growth-period/count")
+    app.register_blueprint(like_post_update, url_prefix="/api/posts/like/update")
+    app.register_blueprint(like_posts_find, url_prefix="/api/posts/like/find")
+    app.register_blueprint(posts_like_delete, url_prefix="/api/posts/like/delete")
+
+    return app
