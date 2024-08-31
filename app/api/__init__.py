@@ -37,7 +37,6 @@ def create_app():
     from .view.post_view.like_posts_find import like_posts_find
     from .view.post_view.posts_like_delete import posts_like_delete
 
-    
 
     app.register_blueprint(posts_insert, url_prefix="/api/posts/insert")
     app.register_blueprint(posts_delete, url_prefix="/api/posts/delete")
@@ -50,5 +49,12 @@ def create_app():
     app.register_blueprint(like_post_update, url_prefix="/api/posts/like/update")
     app.register_blueprint(like_posts_find, url_prefix="/api/posts/like/find")
     app.register_blueprint(posts_like_delete, url_prefix="/api/posts/like/delete")
+
+    # 育成アイテムに関するAPI
+    from .view.grow_item_view.grow_item_find import grow_item_find
+    from .view.grow_item_view.grow_item_stage_check_update_find import grow_item_stage_check_update_find
+
+    app.register_blueprint(grow_item_find, url_prefix="/api/grow-item/find")
+    app.register_blueprint(grow_item_stage_check_update_find, url_prefix="/api/grow-item/stage/check/update")
 
     return app
