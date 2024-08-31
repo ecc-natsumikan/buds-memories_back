@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import request, jsonify
 from config import Config
 from api import create_app
-from app.auth_handler import verify_username_and_password, verify_phone_and_password
+from auth_handler import verify_username_and_password, verify_phone_and_password
 
 
 # Flaskアプリケーションの生成
